@@ -16,12 +16,11 @@ export class HomePage {
       }
       ionViewDidLoad() {
          // subscribe to pusher's event
-         this._chat.getChannel().bind('chat-bot', data => {
-           console.log('responses :',data);
-          // if(data.type !== 'bot'){
-          //   data.isMe = true;
-          // };
-          // this.chats.push(data);
+         this._chat.getChannel().bind('chat', data => {
+          if(data.type !== 'bot'){
+            data.isMe = true;
+          };
+          this.chats.push(data);
         });
       }
 
